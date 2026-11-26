@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<title>WP-1-Informatik – Übung: Dezimal → Binär</title>
+<style ></style>
+</head>
+<body>
+
+<header>
+  <h1>WP-1-Informatik</h1>
+  <p>Übung: Dezimal → Binär mit dem Restwertverfahren</p>
+</header>
+
+<main>
+  <div class="name-box">
+    <label for="name"><strong>Name:</strong></label>
+    <input id="name" type="text" placeholder="Dein Name">
+  </div>
+
+  <h2>Dezimal → Binär</h2>
+  <details class="help">
+    <summary>💡 Erklärung anzeigen</summary>
+    <ol>
+      <li>Teile die Zahl durch 2. Schreibe das Ergebnis (ohne Komma) und den Rest (0 oder 1) auf.</li>
+      <li>Das Ergebnis schreibst du in die nächste Zeile unter „Zahl“ und teilst es wieder durch 2.</li>
+      <li>Mach so lange weiter, bis das Ergebnis <strong>0</strong> ist.</li>
+      <li>Lies die Reste <strong>von unten nach oben</strong>. Das ist die Binärzahl.</li>
+    </ol>
+    <p><strong>Beispiel: 13</strong></p>
+    <table>
+      <tr><th>Zahl</th><th>: 2 =</th><th>Rest</th></tr>
+      <tr><td>13</td><td>6</td><td class="rest">1</td></tr>
+      <tr><td>6</td><td>3</td><td class="rest">0</td></tr>
+      <tr><td>3</td><td>1</td><td class="rest">1</td></tr>
+      <tr><td>1</td><td>0</td><td class="rest">1</td></tr>
+    </table>
+    <p>Von unten nach oben gelesen: <strong>1101</strong>. Probe: 8 + 4 + 1 = 13 ✓</p>
+    <p>Tipp: Gerade Zahlen haben den Rest 0, ungerade Zahlen den Rest 1.</p>
+  </details>
+
+  <div id="tasks"></div>
+
+  <div class="actions">
+    <button class="primary" onclick="checkAll()">✔ Überprüfen</button>
+    <button class="secondary" onclick="resetAll()">↺ Alles löschen</button>
+  </div>
+  <div id="summary"></div>
+
+  <footer>Zur Erklärung: <a href="wp1-erklaerung.html">wp1-erklaerung.html</a></footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

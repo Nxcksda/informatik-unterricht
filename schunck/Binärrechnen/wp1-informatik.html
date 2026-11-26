@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WP-1-Informatik – Zahlensysteme</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>WP-1-Informatik</h1>
+      <p>Zahlensysteme: Binär · Dezimal · Hexadezimal</p>
+    </header>
+
+    <main>
+      <div class="name-box">
+        <label for="name"><strong>Name:</strong></label>
+        <input id="name" type="text" placeholder="Dein Name" />
+      </div>
+
+      <!-- ============ Teil 1 ============ -->
+      <section class="block">
+        <h2>Teil 1: Binär → Dezimal</h2>
+        <details class="help">
+          <summary>💡 Erklärung anzeigen</summary>
+          <p>
+            Im <strong>Binärsystem</strong> (Zweiersystem) gibt es nur die
+            Ziffern <strong>0</strong> und <strong>1</strong>. Jede Stelle hat
+            einen <strong>Stellenwert</strong>, der von rechts nach links immer
+            verdoppelt wird: 1, 2, 4, 8, 16, 32, 64, 128 …
+          </p>
+          <p><strong>So gehst du vor:</strong></p>
+          <ul>
+            <li>
+              Schreibe über jedes Bit seinen Stellenwert (ganz rechts steht die
+              1).
+            </li>
+            <li>
+              Rechne für jede Stelle: <em>Bit × Stellenwert</em>. Bei einer 0
+              kommt also 0 heraus.
+            </li>
+            <li>Addiere alle Werte – das ist deine Dezimalzahl.</li>
+          </ul>
+          <p>
+            <strong>Beispiel:</strong> 101<sub>2</sub> = 1·4 + 0·2 + 1·1 = 4 + 0
+            + 1 = <strong>5</strong>
+          </p>
+        </details>
+        <div id="part1"></div>
+      </section>
+
+      <!-- ============ Teil 2 ============ -->
+      <section class="block">
+        <h2>Teil 2: Binär → Hexadezimal</h2>
+        <details class="help">
+          <summary>💡 Erklärung anzeigen</summary>
+          <p>
+            Das <strong>Hexadezimalsystem</strong> (Sechzehnersystem) hat 16
+            Ziffern: 0–9 und danach
+            <strong>A=10, B=11, C=12, D=13, E=14, F=15</strong>.
+          </p>
+          <p>
+            Der Trick: <strong>4 Bits ergeben genau eine Hex-Ziffer.</strong>
+          </p>
+          <ul>
+            <li>
+              Teile die Binärzahl <strong>von rechts</strong> in 4er-Gruppen ein
+              (fehlende Stellen links mit 0 auffüllen).
+            </li>
+            <li>
+              Rechne jede Gruppe in eine Dezimalzahl um (Stellenwerte 8, 4, 2,
+              1).
+            </li>
+            <li>
+              Schreibe die passende Hex-Ziffer auf und setze alle Ziffern
+              zusammen.
+            </li>
+          </ul>
+          <p>
+            <strong>Beispiel:</strong> 1010 0011 → 1010 = 10 = A, 0011 = 3 →
+            <strong>A3</strong>
+          </p>
+          <table>
+            <tr>
+              <th>Dez</th>
+              <td>0</td>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+              <td>8</td>
+              <td>9</td>
+              <td>10</td>
+              <td>11</td>
+              <td>12</td>
+              <td>13</td>
+              <td>14</td>
+              <td>15</td>
+            </tr>
+            <tr>
+              <th>Hex</th>
+              <td>0</td>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+              <td>8</td>
+              <td>9</td>
+              <td>A</td>
+              <td>B</td>
+              <td>C</td>
+              <td>D</td>
+              <td>E</td>
+              <td>F</td>
+            </tr>
+          </table>
+        </details>
+        <div id="part2"></div>
+      </section>
+
+      <!-- ============ Teil 3 ============ -->
+      <section class="block">
+        <h2>Teil 3: Hexadezimal → Binär</h2>
+        <details class="help">
+          <summary>💡 Erklärung anzeigen</summary>
+          <p>
+            Hier gehst du genau andersherum vor:
+            <strong>Jede Hex-Ziffer wird zu 4 Bits.</strong>
+          </p>
+          <ul>
+            <li>
+              Wandle jede Hex-Ziffer in ihren Dezimalwert um (z. B. C = 12).
+            </li>
+            <li>
+              Zerlege den Wert in die Stellenwerte 8, 4, 2, 1 (z. B. 12 = 8 + 4
+              → <strong>1100</strong>).
+            </li>
+            <li>
+              Schreibe immer <strong>genau 4 Stellen</strong> – also auch
+              führende Nullen (3 → 0011).
+            </li>
+            <li>Setze alle 4er-Gruppen hintereinander.</li>
+          </ul>
+          <p>
+            <strong>Beispiel:</strong> 7E → 7 = 0111, E = 14 = 1110 →
+            <strong>0111 1110</strong>
+          </p>
+        </details>
+        <div id="part3"></div>
+      </section>
+
+      <div class="actions">
+        <button class="primary" onclick="checkAll()">✔ Überprüfen</button>
+        <button class="secondary" onclick="resetAll()">↺ Alles löschen</button>
+      </div>
+      <div id="summary"></div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
